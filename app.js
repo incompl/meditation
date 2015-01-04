@@ -4,8 +4,8 @@ var $meditation = $('#meditation');
 var $end = $('#end');
 var $prep = $('#prep');
 var $duration = $('#duration');
-var $preview = $('#preview');
-var sound = $('#sound');
+var $preview = $$('.preview');
+var sound = $('#bong');//defaults to bong
 
 var prepTimeout;
 var meditationTimeout;
@@ -31,11 +31,26 @@ $end.addEventListener('submit', function(e) {
   e.preventDefault();
 }, false);
 
-$preview.addEventListener('click', function(e) {
-  sound.currentTime = 0;
-  sound.play();
-  e.preventDefault();
-}, false);
+$preview.forEach(
+  function(prev){
+    prev.addEventListener('click', function(e) {
+    stopMusic();
+    var song = prev.getAttribute('data-attr')
+    sound = $('#'+song);
+    sound.currentTime = 0;
+    sound.play();
+
+    e.preventDefault();
+  }, false);
+});
+
+function stopMusic(){
+  //stop audio if already playing
+  if (!sound.paused && !sound.ended && 0 < sound.currentTime){
+    sound.currentTime = 0;
+    sound.pause();
+  }
+}
 
 function done() {
   window.clearTimeout(prepTimeout);
