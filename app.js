@@ -11,11 +11,13 @@ var prepTimeout;
 var meditationTimeout;
 
 $meditation.addEventListener('submit', function(e) {
-  $meditation.style.display = 'none';
-  $end.style.display = 'block';
   var prep = Number($prep.value);
   var duration = Number($duration.value);
-  meditate(prep, duration);
+  var success = meditate(prep, duration);
+  if (success) {
+    $meditation.style.display = 'none';
+    $end.style.display = 'block';
+  }
   e.preventDefault();
 }, false);
 
@@ -45,11 +47,11 @@ function done() {
 function meditate(prep, duration) {
   if (isNaN(prep)) {
     alert('Please enter a preparation time in seconds.');
-    return;
+    return false;
   }
   if (isNaN(duration)) {
     alert('Please enter a meditation time in minutes.');
-    return;
+    return false;
   }
   sound.currentTime = 0;
   sound.play();
@@ -62,4 +64,5 @@ function meditate(prep, duration) {
       done();
     }, duration * 1000 * 60);
   }, prep * 1000);
+  return true;
 }
