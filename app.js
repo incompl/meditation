@@ -51,6 +51,8 @@ function meditate(prep, duration) {
     alert('Please enter a meditation time in minutes.');
     return;
   }
+  sound.currentTime = 0;
+  sound.play();
   prepTimeout = window.setTimeout(function() {
     sound.currentTime = 0;
     sound.play();
