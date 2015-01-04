@@ -1,0 +1,39 @@
+body {
+  margin: 1em;
+  padding: 0;
+  font-family: helvetica, sans-serif;
+  font-size: 20px;
+  background: url('images/seamless_paper_texture.png');
+  color: rgb(107, 105, 100);
+}
+
+input, select, button {
+  margin: 1em 0;
+  padding: 3px 5px;
+  font-size: 20px;
+  width: 4em;
+  border: none;
+  background: rgb(244, 243, 241);
+  color: rgb(107, 105, 100);
+  border-radius: 3px;
+}
+
+input:focus, button:focus {
+  background: white;
+  color: black;
+  outline: none;
+}
+
+#preview {
+  width: 8em;
+}
+
+#content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#end {
+  text-align: center;
+  display: none;
+}
