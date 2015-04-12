@@ -18,16 +18,20 @@
       <form id="meditation">
         <input id="prep" value="10"> seconds of preparation<br>
         <input id="duration" value="10"> minutes of meditation<br>
-        <button id="preview">Preview Audio</button><br>
-        <button type="submit">Begin</button>
+        <div class="audio">
+        <label> Select Audio</label><br>
+          <button class="preview" data-attr="bong">Tone</button>
+          <button class="preview" data-attr="frogs">Frogs</button><br>
+        </div>
+        <input type="submit" value="Begin"></button>
       </form>
 
       <form id="end">
         <button type="submit">End</button>
       </form>
     </div>
-
-    <audio id="sound" src="sounds/soft bong.mp3"></audio>
+    <audio id="frogs" src="sounds/frogs.mp3"></audio>
+    <audio id="bong" src="sounds/soft bong.mp3"></audio>
     <script src="lib/2bux.js"></script>
     <script src="app.js"></script>
   </body>
